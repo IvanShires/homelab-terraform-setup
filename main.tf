@@ -1,11 +1,13 @@
-resource "unifi_network" "network" {
-  for_each     = var.networks
-  name         = each.key
+resource "unifi_network" "unifi_networks" {
+  for_each     = var.unifi_networks
+  name         = "${var.basename}-${each.key}"
   purpose      = "corporate"
-  subnet       = "192.168.${2 + index(keys(var.networks), each.key)}.0/24"
-  vlan_id      = (2 + index(keys(var.networks), each.key)) * 100
-  dhcp_start   = "192.168.${2 + index(keys(var.networks), each.key)}.6"
-  dhcp_stop    = "192.168.${2 + index(keys(var.networks), each.key)}.254"
+  subnet       = "${var.subnet}.${each.value}.1/23"
+  # subnet       = "${var.subnet}.${each.value}.1/24  /24 network
+  vlan_id      = "${each.value}"
+  dhcp_start   = "${var.subnet}.${each.value}.6"
+  dhcp_stop    = "${var.subnet}.${each.value + 1}.254"
+  ## dhcp_stop    = "${var.subnet}.${each.value}.254"  /24 network
   dhcp_enabled = true
 }
 

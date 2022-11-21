@@ -36,7 +36,7 @@ resource "unifi_network" "vlan_networks" {
 resource "unifi_firewall_group" "no_inter_vlan" {
   name    = "RFC1918"
   type    = "address-group"
-  members = ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]
+  members = ["10.0.0.0/8", "172.16.0.0/12"]
 }
 
 resource "unifi_firewall_rule" "drop_all" {

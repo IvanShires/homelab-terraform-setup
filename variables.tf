@@ -35,7 +35,7 @@ variable "vlan_networks" { ## This the value of each key is the VLAN or the subn
   type = map(string)
 }
 
-variable "guest_networks" { ## This the value of each key is the VLAN or the subnet, as they are the same value
-  description = "A map of networks and their VLAN ID / subnet"
-  type = map(string)
-}
+#variable "guest_networks" { ## This the value of each key is the VLAN or the subnet, as they are the same value
+#  description = "A map of networks and their VLAN ID / subnet"
+#  type = map(string)
+#}

@@ -10,7 +10,7 @@ resource "unifi_network" "unifi_networks" {
   ## dhcp_stop    = "${var.subnet}.${each.value}.254"  /24 network
   dhcp_enabled = true
 }
-
+/*
 resource "unifi_network" "guest_networks" {
   for_each     = var.guest_networks
   name         = "${var.basename}-${each.key}"
@@ -23,7 +23,7 @@ resource "unifi_network" "guest_networks" {
   ## dhcp_stop    = "${var.subnet}.${each.value}.254"  /24 network
   dhcp_enabled = true
 }
-
+*/
 resource "unifi_network" "vlan_networks" {
   for_each     = var.vlan_networks
   name         = "${var.basename}-${each.key}"

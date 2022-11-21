@@ -9,22 +9,6 @@ resource "unifi_network" "network" {
   dhcp_enabled = true
 }
 
-<<<<<<< Updated upstream
-data "unifi_wlan_group" "default" {
-}
-
-data "unifi_user_group" "default" {
-}
-
-resource "unifi_wlan" "wifi" {
-  for_each      = var.networks
-  name          = "${var.basename}_${unifi_network.network[each.key].name}"
-  vlan_id       = unifi_network.network[each.key].vlan_id
-  passphrase    = each.value
-  wlan_group_id = data.unifi_wlan_group.default.id
-  user_group_id = data.unifi_user_group.default.id
-  security      = "wpapsk"
-=======
 resource "unifi_network" "guest_networks" {
   for_each     = var.guest_networks
   name         = "${var.basename}-${each.key}"
@@ -46,7 +30,6 @@ resource "unifi_network" "vlan_networks" {
   # subnet       = "${var.subnet}.${each.value}.1/24  /24 network
   vlan_id      = "${each.value}"
   dhcp_enabled = false
->>>>>>> Stashed changes
 }
 
 # The below group was created to adopt "Option 2: Block all VLANs to one another" from the following Unifi's guide: https://help.ui.com/hc/en-us/articles/115010254227-UniFi-USG-Firewall-How-to-Disable-InterVLAN-Routing

@@ -1,8 +1,8 @@
-basename = "MY_HOME"
-username = "SOME_USERNAME"
-password = "SOME_PASSWORD_1"
-networks = {
-  IoT   = "SOME_PASSWORD_2"
-  work  = "SOME_PASSWORD_3"
-  guest = "SOME_PASSWORD_4"
+basename = "rvl"
+subnet = "10.2"
+unifi_networks = { ## subnet
+  trusted = "100",
+  untrusted  = "102",
+  servers = "104",
+  iot = "106",
 }

@@ -24,6 +24,7 @@ variable "networks" {
   description = "A map of networks and their passwords. Can't exceed 3 since the UDM's limit for WiFi networks is 4."
   type        = map(string)
 
+<<<<<<< Updated upstream
   validation {
     condition = (
       length(var.networks) < 4
@@ -31,3 +32,19 @@ variable "networks" {
     error_message = "The map of networks must have no more than 3 keys!"
   }
 }
+=======
+variable "unifi_networks" { ## This the value of each key is the VLAN or the subnet, as they are the same value
+  description = "A map of networks and their VLAN ID / subnet"
+  type = map(string)
+}
+
+variable "vlan_networks" { ## This the value of each key is the VLAN or the subnet, as they are the same value
+  description = "A map of networks and their VLAN ID / subnet"
+  type = map(string)
+}
+
+variable "guest_networks" { ## This the value of each key is the VLAN or the subnet, as they are the same value
+  description = "A map of networks and their VLAN ID / subnet"
+  type = map(string)
+}
+>>>>>>> Stashed changes

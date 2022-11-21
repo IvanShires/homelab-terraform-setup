@@ -1,17 +1,15 @@
 terraform {
-  required_version = "~> 0.13.0"
-
   required_providers {
     unifi = {
       source  = "paultyng/unifi"
-      version = "0.15.0-beta.2"
+      version = "0.38.2"
     }
   }
 }
 
 provider "unifi" {
-  username       = var.username
-  password       = var.password
-  api_url        = var.api_url
+  username       = var.unifi_username
+  password       = var.unifi_password
+  api_url        = var.unifi_api_url
   allow_insecure = true
 }
